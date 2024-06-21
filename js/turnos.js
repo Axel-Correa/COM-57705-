@@ -1,3 +1,51 @@
+//variables
+let miFormulario = document.getElementById("formu");
+const mainFormulario = document.getElementById("mainFormulario");
+const divFormu = document.createElement("div");
+const h4Formu = document.createElement("h4");
+
+miFormulario.appendChild(divFormu);
+
+mainFormulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById("nombreForm").value;
+    const modelo = document.getElementById("autoForm").value;
+    const servicioFomr = document.getElementById("serviForm").value;
+    const fechaFormr = document.getElementById("fechaForm").value;
+    // Almacenar en localStorage
+    localStorage.setItem('nombre', nombre);
+    localStorage.setItem('modelo', modelo);
+    localStorage.setItem('servicio', servicioFomr);
+    localStorage.setItem('fecha', fechaFormr);
+    h4Formu.innerText = `Turno reservado el día de este mes ${fechaFormr} por: ${nombre}. El servicio a realizar para el vehículo ${modelo} es: ${servicioFomr}`;
+    divFormu.appendChild(h4Formu);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 1ro: hacer que usuario coloque su nombre y apellido, DNI.
 3ro: Coloque su modelo de vehiculo y años.
@@ -12,7 +60,7 @@
 Variables: cantidad de turnos dispobibles
 Ciclo: que se vaya restando la cantidad de turnos que alla (ejemplo 30 turnos al mes) hasta llegar a 0 turnos.
 Condicionales: si el turno que selecciono el usuario ya esta reservado que no agende el turno.
-*/
+
 
 //variable 
 let turnos= 1
@@ -31,7 +79,7 @@ let turnoProximo = "";
 //alert con los datos para sacar el turno/ 
 function botonTurno(){
     while(turnos>=turnoLimite){
-        nombreCompleto = prompt ("ingrese su nombre completo");
+        nombreCompleto = prompt ("C");
         while(nombreCompleto === "" || nombreCompleto == null){
             nombreCompleto = prompt("ingrese su nombre completo");
         }
@@ -80,5 +128,3 @@ document.getElementById("startButton").addEventListener("click", botonTurno);
         this.servicio = servicio.toUppercase();
         this.dia = parseInt (dia);
     }*/
-
-
